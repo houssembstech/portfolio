@@ -287,7 +287,7 @@ export const portfolioData = {
       id: 10,
       title: "Hotel Management System & PWA",
       category: "Web",
-      image: "https://images.unsplash.com/photo-1542314831-c6a4d27ce6a2?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
       iframeSrc: "https://hotel-two-cyan.vercel.app/",
       shortDescription: "Système de Gestion Hôtelière complet : tableau de bord de réception et portail résident (PWA).",
       description: "Développement complet d'une solution numérique intégrée pour le secteur hôtelier. Ce projet comprend un tableau de bord opérationnel hautement sécurisé pour la réception (Front Desk) et une Progressive Web App (PWA) dédiée à l'expérience des résidents. Il vise à moderniser les opérations internes de l'hôtel tout en numérisant l'expérience client, du check-in jusqu'au départ. Les fonctionnalités clés incluent la gestion de caisse individuelle, un Visual Rack interactif, la numérisation des pièces d'identité, et un portail résident privé avec authentification hybride sécurisée et suivi de séjour en temps réel.",
