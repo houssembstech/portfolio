@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
+/* Disable the dark: variant so our custom static overriding theme is never overridden by OS preferences */
+@custom-variant dark (&:is(.disable-dark-mode *));
+
+@theme {
+  --color-white: #08090D;      /* Invert white to the darkest canvas */
+  --color-black: #F4F4F5;      /* Invert black to light text */
+  
+  /* Slate color scale inverted and mapped to Neural theme */
+  --color-slate-50: #08090D;   /* Canvas root background */
+  --color-slate-100: #0F1117;  /* Surface */
+  --color-slate-200: #151821;  /* Elevated / Tile borders */
+  --color-slate-300: #1A1D27;  /* Tile */
+  --color-slate-400: rgba(255,255,255,0.38); /* Dim text */
+  --color-slate-500: rgba(255,255,255,0.50); 
+  --color-slate-600: rgba(255,255,255,0.62); /* Secondary text */
+  --color-slate-700: #e4e4e7;
+  --color-slate-800: #F4F4F5;  /* Main text */
+  --color-slate-900: #ffffff;  /* Highlight text */
+  
+  /* Indigo -> mapped to Neural Cyan (#22D3EE) */
+  --color-indigo-50: rgba(34,211,238,0.12);
+  --color-indigo-100: rgba(34,211,238,0.20);
+  --color-indigo-200: rgba(34,211,238,0.35); /* Glow */
+  --color-indigo-300: #22D3EE;
+  --color-indigo-400: #22D3EE;
+  --color-indigo-500: #22D3EE;
+  --color-indigo-600: #22D3EE;
+  --color-indigo-700: #0891b2;
+  --color-indigo-800: #164e63;
+  --color-indigo-900: #083344;
+  
+  /* Sky -> mapped to Neural Violet (#A78BFA) */
+  --color-sky-50: rgba(167,139,250,0.14);
+  --color-sky-100: rgba(167,139,250,0.25);
+  --color-sky-200: #c4b5fd;
+  --color-sky-300: #A78BFA;
+  --color-sky-400: #A78BFA;
+  --color-sky-500: #A78BFA;
+  --color-sky-600: #8b5cf6;
+  --color-sky-700: #7c3aed;
+  --color-sky-800: #6d28d9;
+  --color-sky-900: #4c1d95;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0A0E17;
+  --foreground: #F4F4F5;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  scroll-behavior: smooth;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(40px, -60px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes grid-pan {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-blob {
+  animation: blob 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-grid-pan {
+  animation: grid-pan 30s linear infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
